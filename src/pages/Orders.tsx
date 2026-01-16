@@ -5,7 +5,6 @@ import {
     ShoppingBag,
     Calendar,
     User,
-    CreditCard,
     ChevronLeft,
     ChevronRight,
     Search,

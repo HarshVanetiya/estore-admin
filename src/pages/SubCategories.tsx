@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '../supabase';
-import { Tag, Plus, Trash2, Search, X, Edit3, ChevronLeft, ChevronRight, Save, Loader2 } from 'lucide-react';
+import { Tag, Plus, Trash2, ChevronLeft, ChevronRight, Loader2 } from 'lucide-react';
 import Loader from '../components/Loader';
 import Modal from '../components/Modal';
 

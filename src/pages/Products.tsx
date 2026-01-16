@@ -1,13 +1,12 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '../supabase';
-import { Package, Plus, Trash2, Search, X, Edit3, ChevronLeft, ChevronRight, Save, Loader2 } from 'lucide-react';
-import Loader from '../components/Loader';
+import { Package, Plus, ChevronLeft, ChevronRight } from 'lucide-react';
 import ImageUpload from '../components/ImageUpload';
 import Modal from '../components/Modal';
 
 export default function Products() {
     const [data, setData] = useState<any[]>([]);
-    const [loading, setLoading] = useState(true);
+
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
     const [editingId, setEditingId] = useState<string | null>(null);
 
@@ -64,7 +63,7 @@ export default function Products() {
     }, [selectedCatId, subCategories]);
 
     const fetchProducts = async () => {
-        setLoading(true);
+
         let query = supabase.from('products').select('*', { count: 'exact' }).order('created_at', { ascending: false });
         if (search) query = query.ilike('title', `%${search}%`);
         const from = (page - 1) * 8;
@@ -73,7 +72,7 @@ export default function Products() {
         const { data, count } = await query;
         setData(data || []);
         setTotal(count || 0);
-        setLoading(false);
+
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
