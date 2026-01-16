@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@theme {
+  /* New Calm Palette */
+  --color-ink-black: #01161e;
+  --color-dark-teal: #124559;
+  --color-air-force-blue: #598392;
+  --color-ash-grey: #aec3b0;
+  --color-beige: #eff6e0;
+}
+
+@layer utilities {
+  .glass-card {
+    background: rgba(18, 69, 89, 0.15); /* Softer Dark Teal */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08); /* White subtle border */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2); /* Soft shadow */
+  }
+  
+  .shimmer-effect::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+      to right,
+      transparent,
+      rgba(239, 246, 224, 0.1), /* Beige shine */
+      transparent
+    );
+    transform: skewX(-25deg);
+    transition: 0.7s;
+    pointer-events: none;
+  }
+
+  .shimmer-effect:hover::before {
+    left: 200%;
+    transition: 0.7s;
+  }
+  
+  .animate-spin-slow {
+    animation: spin 3s linear infinite;
+  }
+}
