@@ -1,17 +1,21 @@
 @import "tailwindcss";
 
 @theme {
-  /* New Calm Palette */
-  --color-ink-black: #01161e;
-  --color-dark-teal: #124559;
-  --color-air-force-blue: #598392;
-  --color-ash-grey: #aec3b0;
-  --color-beige: #eff6e0;
+  /* New Monochrome Palette */
+  --color-bright-snow: #f8f9faff;
+  --color-platinum: #e9ecefff;
+  --color-alabaster-grey: #dee2e6ff;
+  --color-pale-slate: #ced4daff;
+  --color-pale-slate-2: #adb5bdff;
+  --color-slate-grey: #6c757dff;
+  --color-iron-grey: #495057ff;
+  --color-gunmetal: #343a40ff;
+  --color-carbon-black: #212529ff;
 }
 
 @layer utilities {
   .glass-card {
-    background: rgba(18, 69, 89, 0.15); /* Softer Dark Teal */
+    background: rgba(52, 58, 64, 0.4); /* Gunmetal with opacity */
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.08); /* White subtle border */
@@ -28,7 +32,7 @@
     background: linear-gradient(
       to right,
       transparent,
-      rgba(239, 246, 224, 0.1), /* Beige shine */
+      rgba(248, 249, 250, 0.1), /* Bright Snow shine */
       transparent
     );
     transform: skewX(-25deg);

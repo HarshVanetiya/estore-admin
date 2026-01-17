@@ -28,7 +28,7 @@ const Modal: React.FC<ModalProps> = ({
     const getIcon = () => {
         switch (type) {
             case 'success': return <CheckCircle size={24} className="text-emerald-400" />;
-            case 'confirm': return <HelpCircle size={24} className="text-honey" />;
+            case 'confirm': return <HelpCircle size={24} className="text-bright-snow" />;
             default: return <AlertCircle size={24} className="text-red-400" />;
         }
     };
@@ -36,17 +36,17 @@ const Modal: React.FC<ModalProps> = ({
     const getIconBg = () => {
         switch (type) {
             case 'success': return 'bg-emerald-500/10 border-emerald-500/20 shadow-[0_0_15px_rgba(16,185,129,0.2)]';
-            case 'confirm': return 'bg-honey/10 border-honey/20 shadow-[0_0_15px_rgba(255,191,0,0.2)]';
+            case 'confirm': return 'bg-pale-slate/10 border-pale-slate/20 shadow-[0_0_15px_rgba(255,255,255,0.2)]';
             default: return 'bg-red-500/10 border-red-500/20 shadow-[0_0_15px_rgba(239,68,68,0.2)]';
         }
     };
 
     return createPortal(
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-ink-black/60 backdrop-blur-sm animate-in fade-in duration-200">
-            <div className="glass-card relative w-full max-w-sm p-6 rounded-2xl shadow-2xl animate-in zoom-in-95 duration-200 border border-white/10">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-gunmetal/80 animate-in fade-in duration-200">
+            <div className="bg-iron-grey relative w-full max-w-sm p-6 rounded-2xl shadow-2xl animate-in zoom-in-95 duration-200 border border-white/10">
                 <button
                     onClick={onClose}
-                    className="absolute top-4 right-4 text-ash-grey hover:text-beige transition-colors"
+                    className="absolute top-4 right-4 text-pale-slate hover:text-bright-snow transition-colors"
                 >
                     <X size={20} />
                 </button>
@@ -56,11 +56,11 @@ const Modal: React.FC<ModalProps> = ({
                         {getIcon()}
                     </div>
 
-                    <h3 className="text-xl font-bold text-beige mb-2 tracking-wide">
+                    <h3 className="text-xl font-bold text-bright-snow mb-2 tracking-wide">
                         {title}
                     </h3>
 
-                    <p className="text-ash-grey/80 text-sm mb-6 leading-relaxed">
+                    <p className="text-pale-slate/80 text-sm mb-6 leading-relaxed">
                         {message}
                     </p>
 
@@ -69,13 +69,13 @@ const Modal: React.FC<ModalProps> = ({
                             <>
                                 <button
                                     onClick={onClose}
-                                    className="flex-1 py-3 bg-white/5 text-ash-grey rounded-xl font-bold font-sans hover:bg-white/10 transition-all duration-200"
+                                    className="flex-1 py-3 bg-white/5 text-pale-slate rounded-xl font-bold font-sans hover:bg-white/10 transition-all duration-200"
                                 >
                                     {cancelText}
                                 </button>
                                 <button
                                     onClick={() => { onConfirm(); onClose(); }}
-                                    className="flex-1 py-3 bg-beige text-dark-teal rounded-xl font-bold font-sans shadow-lg hover:bg-white active:scale-95 transition-all duration-200"
+                                    className="flex-1 py-3 bg-bright-snow text-gunmetal rounded-xl font-bold font-sans shadow-lg hover:bg-white active:scale-95 transition-all duration-200"
                                 >
                                     {confirmText}
                                 </button>
@@ -83,7 +83,7 @@ const Modal: React.FC<ModalProps> = ({
                         ) : (
                             <button
                                 onClick={onClose}
-                                className="w-full py-3 bg-beige text-dark-teal rounded-xl font-bold font-sans shadow-lg hover:bg-white active:scale-95 transition-all duration-200"
+                                className="w-full py-3 bg-bright-snow text-gunmetal rounded-xl font-bold font-sans shadow-lg hover:bg-white active:scale-95 transition-all duration-200"
                             >
                                 Dismiss
                             </button>

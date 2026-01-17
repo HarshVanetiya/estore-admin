@@ -122,47 +122,47 @@ export default function Products() {
     return (
         <div className="relative min-h-screen">
             <div className="flex justify-between items-center mb-6">
-                <h2 className="text-3xl font-bold text-beige flex gap-3"><Package className="text-dark-teal" /> Products</h2>
+                <h2 className="text-3xl font-bold text-bright-snow flex gap-3"><Package className="text-platinum" /> Products</h2>
                 <div className="flex gap-3">
-                    <input type="text" placeholder="Search..." onChange={e => setSearch(e.target.value)} className="p-2 bg-ink-black/40 border border-ash-grey/20 rounded-xl text-beige" />
-                    <button onClick={() => openDrawer()} className="px-4 py-2 bg-beige text-dark-teal rounded-xl font-bold flex gap-2"><Plus size={20} /> New</button>
+                    <input type="text" placeholder="Search..." onChange={e => setSearch(e.target.value)} className="p-2 bg-gunmetal/40 border border-pale-slate/20 rounded-xl text-bright-snow" />
+                    <button onClick={() => openDrawer()} className="px-4 py-2 bg-bright-snow text-gunmetal rounded-xl font-bold flex gap-2"><Plus size={20} /> New</button>
                 </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {data.map(product => (
                     <div key={product.id} onClick={() => openDrawer(product)} className="glass-card p-4 rounded-2xl group cursor-pointer hover:bg-white/5 transition-all">
-                        <div className="aspect-square bg-ink-black/50 rounded-xl mb-4 overflow-hidden relative">
+                        <div className="aspect-square bg-gunmetal/50 rounded-xl mb-4 overflow-hidden relative">
                             {product.images?.[0] && <img src={product.images[0]} className="w-full h-full object-cover" />}
                             <div className="absolute top-2 right-2 bg-black/60 text-white text-xs px-2 py-1 rounded">Stock: {product.inventory}</div>
                         </div>
-                        <h3 className="font-bold text-beige truncate">{product.title}</h3>
-                        <p className="text-honey font-mono">₹{product.price}</p>
+                        <h3 className="font-bold text-bright-snow truncate">{product.title}</h3>
+                        <p className="text-pale-slate font-mono">₹{product.price}</p>
                     </div>
                 ))}
             </div>
 
             {/* PAGINATION FOOTER */}
             {total > 0 && (
-                <div className="mt-6 p-4 border border-ash-grey/10 bg-ink-black/20 rounded-xl flex items-center justify-between">
-                    <span className="text-xs text-ash-grey">
-                        Showing <span className="text-beige font-bold">{data.length}</span> of <span className="text-beige font-bold">{total}</span>
+                <div className="mt-6 p-4 border border-pale-slate/10 bg-gunmetal/20 rounded-xl flex items-center justify-between">
+                    <span className="text-xs text-pale-slate">
+                        Showing <span className="text-bright-snow font-bold">{data.length}</span> of <span className="text-bright-snow font-bold">{total}</span>
                     </span>
                     <div className="flex gap-2 items-center">
                         <button
                             disabled={page === 1}
                             onClick={() => setPage(p => Math.max(1, p - 1))}
-                            className="p-2 rounded-lg bg-ink-black/40 border border-ash-grey/10 text-beige hover:bg-dark-teal disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+                            className="p-2 rounded-lg bg-gunmetal/40 border border-pale-slate/10 text-bright-snow hover:bg-iron-grey disabled:opacity-30 disabled:cursor-not-allowed transition-all"
                         >
                             <ChevronLeft size={16} />
                         </button>
-                        <span className="text-sm font-mono text-ash-grey px-2">
+                        <span className="text-sm font-mono text-pale-slate px-2">
                             {page} / {Math.ceil(total / 8) || 1}
                         </span>
                         <button
                             disabled={page >= Math.ceil(total / 8)}
                             onClick={() => setPage(p => p + 1)}
-                            className="p-2 rounded-lg bg-ink-black/40 border border-ash-grey/10 text-beige hover:bg-dark-teal disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+                            className="p-2 rounded-lg bg-gunmetal/40 border border-pale-slate/10 text-bright-snow hover:bg-iron-grey disabled:opacity-30 disabled:cursor-not-allowed transition-all"
                         >
                             <ChevronRight size={16} />
                         </button>
@@ -174,30 +174,30 @@ export default function Products() {
             {isDrawerOpen && (
                 <div className="fixed inset-0 z-50 flex justify-end">
                     <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setIsDrawerOpen(false)} />
-                    <div className="relative w-full max-w-2xl bg-ink-black border-l border-ash-grey/20 h-full p-8 overflow-y-auto shadow-2xl">
-                        <h2 className="text-2xl font-bold text-beige mb-6">{editingId ? 'Edit Product' : 'Add Product'}</h2>
+                    <div className="relative w-full max-w-2xl bg-gunmetal border-l border-pale-slate/20 h-full p-8 overflow-y-auto shadow-2xl">
+                        <h2 className="text-2xl font-bold text-bright-snow mb-6">{editingId ? 'Edit Product' : 'Add Product'}</h2>
 
                         <form onSubmit={handleSubmit} className="space-y-6">
                             <div className="grid grid-cols-2 gap-4">
                                 <div>
-                                    <label className="text-xs text-ash-grey font-bold uppercase">Title</label>
+                                    <label className="text-xs text-pale-slate font-bold uppercase">Title</label>
                                     <input required type="text" value={formData.title}
                                         onChange={e => {
                                             const slug = e.target.value.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '');
                                             setFormData({ ...formData, title: e.target.value, slug });
                                         }}
-                                        className="w-full p-3 bg-ink-black border border-ash-grey/20 rounded-xl text-beige"
+                                        className="w-full p-3 bg-gunmetal border border-pale-slate/20 rounded-xl text-bright-snow"
                                     />
                                 </div>
                                 <div>
-                                    <label className="text-xs text-ash-grey font-bold uppercase">Slug</label>
-                                    <input required type="text" value={formData.slug} onChange={e => setFormData({ ...formData, slug: e.target.value })} className="w-full p-3 bg-ink-black border border-ash-grey/20 rounded-xl text-ash-grey font-mono" />
+                                    <label className="text-xs text-pale-slate font-bold uppercase">Slug</label>
+                                    <input required type="text" value={formData.slug} onChange={e => setFormData({ ...formData, slug: e.target.value })} className="w-full p-3 bg-gunmetal border border-pale-slate/20 rounded-xl text-pale-slate font-mono" />
                                 </div>
                             </div>
 
                             {/* IMAGES */}
                             <div>
-                                <label className="text-xs text-ash-grey font-bold uppercase mb-2 block">Product Images</label>
+                                <label className="text-xs text-pale-slate font-bold uppercase mb-2 block">Product Images</label>
                                 <ImageUpload
                                     images={formData.images}
                                     setImages={(imgs) => setFormData({ ...formData, images: imgs })}
@@ -207,15 +207,15 @@ export default function Products() {
 
                             <div className="grid grid-cols-2 gap-4">
                                 <div>
-                                    <label className="text-xs text-ash-grey font-bold uppercase">Category</label>
-                                    <select value={selectedCatId} onChange={e => setSelectedCatId(e.target.value)} className="w-full p-3 bg-ink-black border border-ash-grey/20 rounded-xl text-beige">
+                                    <label className="text-xs text-pale-slate font-bold uppercase">Category</label>
+                                    <select value={selectedCatId} onChange={e => setSelectedCatId(e.target.value)} className="w-full p-3 bg-gunmetal border border-pale-slate/20 rounded-xl text-bright-snow">
                                         <option value="">Select Category...</option>
                                         {categories.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
                                     </select>
                                 </div>
                                 <div>
-                                    <label className="text-xs text-ash-grey font-bold uppercase">Sub-Category</label>
-                                    <select required value={formData.sub_category_id} onChange={e => setFormData({ ...formData, sub_category_id: e.target.value })} className="w-full p-3 bg-ink-black border border-ash-grey/20 rounded-xl text-beige" disabled={!selectedCatId}>
+                                    <label className="text-xs text-pale-slate font-bold uppercase">Sub-Category</label>
+                                    <select required value={formData.sub_category_id} onChange={e => setFormData({ ...formData, sub_category_id: e.target.value })} className="w-full p-3 bg-gunmetal border border-pale-slate/20 rounded-xl text-bright-snow" disabled={!selectedCatId}>
                                         <option value="">Select Sub-Category...</option>
                                         {filteredSubs.map(s => <option key={s.id} value={s.id}>{s.name}</option>)}
                                     </select>
@@ -224,25 +224,25 @@ export default function Products() {
 
                             <div className="grid grid-cols-3 gap-4">
                                 <div>
-                                    <label className="text-xs text-ash-grey font-bold uppercase">Price (₹)</label>
-                                    <input required type="number" value={formData.price} onChange={e => setFormData({ ...formData, price: Number(e.target.value) })} className="w-full p-3 bg-ink-black border border-ash-grey/20 rounded-xl text-beige" />
+                                    <label className="text-xs text-pale-slate font-bold uppercase">Price (₹)</label>
+                                    <input required type="number" value={formData.price} onChange={e => setFormData({ ...formData, price: Number(e.target.value) })} className="w-full p-3 bg-gunmetal border border-pale-slate/20 rounded-xl text-bright-snow" />
                                 </div>
                                 <div>
-                                    <label className="text-xs text-ash-grey font-bold uppercase">Discount (%)</label>
-                                    <input type="number" value={formData.discount_percent} onChange={e => setFormData({ ...formData, discount_percent: Number(e.target.value) })} className="w-full p-3 bg-ink-black border border-ash-grey/20 rounded-xl text-beige" />
+                                    <label className="text-xs text-pale-slate font-bold uppercase">Discount (%)</label>
+                                    <input type="number" value={formData.discount_percent} onChange={e => setFormData({ ...formData, discount_percent: Number(e.target.value) })} className="w-full p-3 bg-gunmetal border border-pale-slate/20 rounded-xl text-bright-snow" />
                                 </div>
                                 <div>
-                                    <label className="text-xs text-ash-grey font-bold uppercase">Stock</label>
-                                    <input required type="number" value={formData.inventory} onChange={e => setFormData({ ...formData, inventory: Number(e.target.value) })} className="w-full p-3 bg-ink-black border border-ash-grey/20 rounded-xl text-beige" />
+                                    <label className="text-xs text-pale-slate font-bold uppercase">Stock</label>
+                                    <input required type="number" value={formData.inventory} onChange={e => setFormData({ ...formData, inventory: Number(e.target.value) })} className="w-full p-3 bg-gunmetal border border-pale-slate/20 rounded-xl text-bright-snow" />
                                 </div>
                             </div>
 
                             <div>
-                                <label className="text-xs text-ash-grey font-bold uppercase">Description</label>
-                                <textarea rows={4} value={formData.description} onChange={e => setFormData({ ...formData, description: e.target.value })} className="w-full p-3 bg-ink-black border border-ash-grey/20 rounded-xl text-beige" />
+                                <label className="text-xs text-pale-slate font-bold uppercase">Description</label>
+                                <textarea rows={4} value={formData.description} onChange={e => setFormData({ ...formData, description: e.target.value })} className="w-full p-3 bg-gunmetal border border-pale-slate/20 rounded-xl text-bright-snow" />
                             </div>
 
-                            <button className="w-full py-4 bg-beige text-dark-teal font-bold rounded-xl hover:bg-white transition-colors">Save Product</button>
+                            <button className="w-full py-4 bg-bright-snow text-gunmetal font-bold rounded-xl hover:bg-white transition-colors">Save Product</button>
                         </form>
                     </div>
                 </div>

@@ -120,27 +120,27 @@ export default function SubCategories() {
             {/* Header */}
             <div className="flex justify-between items-center mb-6">
                 <div>
-                    <h2 className="text-3xl font-bold text-beige flex items-center gap-3">
-                        <Tag className="text-dark-teal fill-ash-grey" /> Sub-Categories
+                    <h2 className="text-3xl font-bold text-bright-snow flex items-center gap-3">
+                        <Tag className="text-platinum fill-pale-slate" /> Sub-Categories
                     </h2>
-                    <p className="text-ash-grey text-sm">Organize specifics (e.g. 'Smartphones' under 'Electronics')</p>
+                    <p className="text-pale-slate text-sm">Organize specifics (e.g. 'Smartphones' under 'Electronics')</p>
                 </div>
                 <div className="flex gap-3">
                     <input
                         type="text" placeholder="Search..." value={search} onChange={e => setSearch(e.target.value)}
-                        className="p-2 bg-ink-black/40 border border-ash-grey/20 rounded-xl text-beige focus:outline-none"
+                        className="p-2 bg-gunmetal/40 border border-pale-slate/20 rounded-xl text-bright-snow focus:outline-none"
                     />
-                    <button onClick={() => openDrawer()} className="px-4 py-2 bg-beige text-dark-teal rounded-xl font-bold hover:bg-white flex gap-2">
+                    <button onClick={() => openDrawer()} className="px-4 py-2 bg-bright-snow text-gunmetal rounded-xl font-bold hover:bg-white flex gap-2">
                         <Plus size={20} /> New
                     </button>
                 </div>
             </div>
 
             {/* Table */}
-            <div className="glass-card rounded-2xl overflow-hidden border border-ash-grey/10">
+            <div className="glass-card rounded-2xl overflow-hidden border border-pale-slate/10">
                 {loading ? <div className="p-12 flex justify-center"><Loader /></div> : (
-                    <table className="w-full text-left text-sm text-beige">
-                        <thead className="bg-ink-black/40 text-ash-grey uppercase text-xs font-bold">
+                    <table className="w-full text-left text-sm text-bright-snow">
+                        <thead className="bg-gunmetal/40 text-pale-slate uppercase text-xs font-bold">
                             <tr>
                                 <th className="p-4">Name</th>
                                 <th className="p-4">Parent Category</th>
@@ -148,18 +148,18 @@ export default function SubCategories() {
                                 <th className="p-4 text-right">Actions</th>
                             </tr>
                         </thead>
-                        <tbody className="divide-y divide-ash-grey/5">
+                        <tbody className="divide-y divide-pale-slate/5">
                             {data.map(item => (
-                                <tr key={item.id} onClick={() => openDrawer(item)} className="hover:bg-ash-grey/5 cursor-pointer group">
+                                <tr key={item.id} onClick={() => openDrawer(item)} className="hover:bg-pale-slate/5 cursor-pointer group">
                                     <td className="p-4 font-bold">{item.name}</td>
-                                    <td className="p-4 text-ash-grey">
-                                        <span className="bg-dark-teal/40 px-2 py-1 rounded text-xs border border-ash-grey/20">
+                                    <td className="p-4 text-pale-slate">
+                                        <span className="bg-iron-grey/40 px-2 py-1 rounded text-xs border border-pale-slate/20">
                                             {item.categories?.name || 'Unknown'}
                                         </span>
                                     </td>
-                                    <td className="p-4 font-mono text-ash-grey/70">{item.slug}</td>
+                                    <td className="p-4 font-mono text-pale-slate/70">{item.slug}</td>
                                     <td className="p-4 text-right">
-                                        <button onClick={(e) => { e.stopPropagation(); handleDelete(item.id); }} className="p-2 hover:bg-red-500/20 text-ash-grey hover:text-red-400 rounded">
+                                        <button onClick={(e) => { e.stopPropagation(); handleDelete(item.id); }} className="p-2 hover:bg-red-500/20 text-pale-slate hover:text-red-400 rounded">
                                             <Trash2 size={16} />
                                         </button>
                                     </td>
@@ -172,25 +172,25 @@ export default function SubCategories() {
 
             {/* Pagination Footer */}
             {totalCount > 0 && (
-                <div className="mt-6 p-4 border border-ash-grey/10 bg-ink-black/20 rounded-xl flex items-center justify-between">
-                    <span className="text-xs text-ash-grey">
-                        Showing <span className="text-beige font-bold">{data.length}</span> of <span className="text-beige font-bold">{totalCount}</span>
+                <div className="mt-6 p-4 border border-pale-slate/10 bg-gunmetal/20 rounded-xl flex items-center justify-between">
+                    <span className="text-xs text-pale-slate">
+                        Showing <span className="text-bright-snow font-bold">{data.length}</span> of <span className="text-bright-snow font-bold">{totalCount}</span>
                     </span>
                     <div className="flex gap-2 items-center">
                         <button
                             disabled={page === 1}
                             onClick={() => setPage(p => Math.max(1, p - 1))}
-                            className="p-2 rounded-lg bg-ink-black/40 border border-ash-grey/10 text-beige hover:bg-dark-teal disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+                            className="p-2 rounded-lg bg-gunmetal/40 border border-pale-slate/10 text-bright-snow hover:bg-iron-grey disabled:opacity-30 disabled:cursor-not-allowed transition-all"
                         >
                             <ChevronLeft size={16} />
                         </button>
-                        <span className="text-sm font-mono text-ash-grey px-2">
+                        <span className="text-sm font-mono text-pale-slate px-2">
                             {page} / {Math.ceil(totalCount / itemsPerPage) || 1}
                         </span>
                         <button
                             disabled={page >= Math.ceil(totalCount / itemsPerPage)}
                             onClick={() => setPage(p => p + 1)}
-                            className="p-2 rounded-lg bg-ink-black/40 border border-ash-grey/10 text-beige hover:bg-dark-teal disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+                            className="p-2 rounded-lg bg-gunmetal/40 border border-pale-slate/10 text-bright-snow hover:bg-iron-grey disabled:opacity-30 disabled:cursor-not-allowed transition-all"
                         >
                             <ChevronRight size={16} />
                         </button>
@@ -202,16 +202,16 @@ export default function SubCategories() {
             {isDrawerOpen && (
                 <>
                     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40" onClick={() => setIsDrawerOpen(false)} />
-                    <div className="fixed top-0 right-0 h-full w-[400px] bg-ink-black border-l border-ash-grey/20 z-50 p-6 shadow-2xl">
-                        <h3 className="text-xl font-bold text-beige mb-6">{editingId ? 'Edit' : 'New'} Sub-Category</h3>
+                    <div className="fixed top-0 right-0 h-full w-[400px] bg-gunmetal border-l border-pale-slate/20 z-50 p-6 shadow-2xl">
+                        <h3 className="text-xl font-bold text-bright-snow mb-6">{editingId ? 'Edit' : 'New'} Sub-Category</h3>
                         <form onSubmit={handleSubmit} className="space-y-4">
 
                             <div>
-                                <label className="text-xs font-bold text-ash-grey uppercase">Parent Category</label>
+                                <label className="text-xs font-bold text-pale-slate uppercase">Parent Category</label>
                                 <select
                                     value={formData.category_id}
                                     onChange={e => setFormData({ ...formData, category_id: e.target.value })}
-                                    className="w-full p-3 mt-1 bg-ink-black border border-ash-grey/20 rounded-xl text-beige focus:border-honey/50 outline-none"
+                                    className="w-full p-3 mt-1 bg-gunmetal border border-pale-slate/20 rounded-xl text-bright-snow focus:border-pale-slate/50 outline-none"
                                     required
                                 >
                                     <option value="">Select Parent...</option>
@@ -220,24 +220,24 @@ export default function SubCategories() {
                             </div>
 
                             <div>
-                                <label className="text-xs font-bold text-ash-grey uppercase">Name</label>
+                                <label className="text-xs font-bold text-pale-slate uppercase">Name</label>
                                 <input
                                     type="text" value={formData.name} onChange={e => handleNameChange(e.target.value)}
-                                    className="w-full p-3 mt-1 bg-ink-black border border-ash-grey/20 rounded-xl text-beige focus:border-honey/50 outline-none"
+                                    className="w-full p-3 mt-1 bg-gunmetal border border-pale-slate/20 rounded-xl text-bright-snow focus:border-pale-slate/50 outline-none"
                                     required
                                 />
                             </div>
 
                             <div>
-                                <label className="text-xs font-bold text-ash-grey uppercase">Slug</label>
+                                <label className="text-xs font-bold text-pale-slate uppercase">Slug</label>
                                 <input
                                     type="text" value={formData.slug} onChange={e => setFormData({ ...formData, slug: e.target.value })}
-                                    className="w-full p-3 mt-1 bg-ink-black border border-ash-grey/20 rounded-xl text-ash-grey font-mono text-sm focus:border-honey/50 outline-none"
+                                    className="w-full p-3 mt-1 bg-gunmetal border border-pale-slate/20 rounded-xl text-pale-slate font-mono text-sm focus:border-pale-slate/50 outline-none"
                                     required
                                 />
                             </div>
 
-                            <button disabled={saving} className="w-full py-3 bg-beige text-dark-teal rounded-xl font-bold hover:bg-white mt-4 flex justify-center gap-2">
+                            <button disabled={saving} className="w-full py-3 bg-bright-snow text-gunmetal rounded-xl font-bold hover:bg-white mt-4 flex justify-center gap-2">
                                 {saving && <Loader2 className="animate-spin" />} Save
                             </button>
                         </form>

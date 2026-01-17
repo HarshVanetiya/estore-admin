@@ -17,17 +17,17 @@ export default function Loader({ fullScreen = false, size = 'lg' }: LoaderProps)
         ${sizeClasses[size]} 
         rounded-full 
         animate-spin 
-        border-ink-black 
-        border-t-ash-grey 
+        border-gunmetal 
+        border-t-bright-snow 
       `}
         ></div>
     );
 
     if (fullScreen) {
         return (
-            <div className="fixed inset-0 flex flex-col items-center justify-center bg-dark-teal/90 z-50 backdrop-blur-sm">
+            <div className="fixed inset-0 flex flex-col items-center justify-center bg-gunmetal/90 z-50">
                 <Spinner />
-                <p className="mt-4 text-beige font-bold tracking-widest animate-pulse">
+                <p className="mt-4 text-bright-snow font-bold tracking-widest animate-pulse">
                     LOADING
                 </p>
             </div>

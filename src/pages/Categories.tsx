@@ -188,30 +188,30 @@ export default function Categories() {
                 {/* Header & Toolbar */}
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                     <div>
-                        <h2 className="text-3xl font-bold text-beige tracking-tight flex items-center gap-3">
-                            <Layers className="text-dark-teal fill-ash-grey" />
+                        <h2 className="text-3xl font-bold text-bright-snow tracking-tight flex items-center gap-3">
+                            <Layers className="text-platinum fill-pale-slate" />
                             Categories
                         </h2>
-                        <p className="text-ash-grey mt-1 text-sm">Manage product groups.</p>
+                        <p className="text-pale-slate mt-1 text-sm">Manage product groups.</p>
                     </div>
 
                     <div className="flex gap-3 w-full md:w-auto">
                         {/* Search Bar */}
                         <div className="relative flex-1 md:w-64 group">
-                            <Search className="absolute left-3 top-2.5 text-ash-grey group-focus-within:text-beige transition-colors" size={18} />
+                            <Search className="absolute left-3 top-2.5 text-pale-slate group-focus-within:text-bright-snow transition-colors" size={18} />
                             <input
                                 type="text"
                                 value={search}
                                 onChange={(e) => { setSearch(e.target.value); setPage(1); }}
                                 placeholder="Search categories..."
-                                className="w-full pl-10 pr-4 py-2 bg-ink-black/40 border border-ash-grey/20 rounded-xl text-beige placeholder-ash-grey/40 focus:outline-none focus:border-ash-grey/60 focus:bg-ink-black/60 transition-all"
+                                className="w-full pl-10 pr-4 py-2 bg-gunmetal/40 border border-pale-slate/20 rounded-xl text-bright-snow placeholder-pale-slate/40 focus:outline-none focus:border-pale-slate/60 focus:bg-gunmetal/60 transition-all"
                             />
                         </div>
 
                         {/* Add Button */}
                         <button
                             onClick={openCreateDrawer}
-                            className="px-4 py-2 bg-beige text-dark-teal rounded-xl font-bold hover:bg-white transition-all flex items-center gap-2 shadow-lg shadow-beige/10"
+                            className="px-4 py-2 bg-bright-snow text-gunmetal rounded-xl font-bold hover:bg-white transition-all flex items-center gap-2 shadow-lg shadow-bright-snow/10"
                         >
                             <Plus size={20} />
                             <span className="hidden sm:inline">New Category</span>
@@ -220,13 +220,13 @@ export default function Categories() {
                 </div>
 
                 {/* Data Table */}
-                <div className="glass-card rounded-2xl overflow-hidden border border-ash-grey/10 min-h-[400px] flex flex-col">
+                <div className="glass-card rounded-2xl overflow-hidden border border-pale-slate/10 min-h-[400px] flex flex-col">
                     {loading ? (
                         <div className="flex-1 flex items-center justify-center">
                             <Loader size="md" />
                         </div>
                     ) : categories.length === 0 ? (
-                        <div className="flex-1 flex flex-col items-center justify-center text-ash-grey opacity-60">
+                        <div className="flex-1 flex flex-col items-center justify-center text-pale-slate opacity-60">
                             <Layers size={48} className="mb-4" />
                             <p>No categories found.</p>
                         </div>
@@ -234,45 +234,45 @@ export default function Categories() {
                         <div className="flex-1 overflow-x-auto">
                             <table className="w-full text-left border-collapse">
                                 <thead>
-                                    <tr className="bg-ink-black/40 text-ash-grey/70 text-xs uppercase tracking-widest font-bold border-b border-ash-grey/10">
+                                    <tr className="bg-gunmetal/40 text-pale-slate/70 text-xs uppercase tracking-widest font-bold border-b border-pale-slate/10">
                                         <th className="p-4 pl-6">Name</th>
                                         <th className="p-4">Slug</th>
                                         <th className="p-4 text-right pr-6">Actions</th>
                                     </tr>
                                 </thead>
-                                <tbody className="divide-y divide-ash-grey/5 text-sm">
+                                <tbody className="divide-y divide-pale-slate/5 text-sm">
                                     {categories.map((cat) => (
                                         <tr
                                             key={cat.id}
-                                            className="hover:bg-ash-grey/5 transition-colors group cursor-pointer"
+                                            className="hover:bg-pale-slate/5 transition-colors group cursor-pointer"
                                             onClick={() => openEditDrawer(cat)}
                                         >
                                             <td className="p-4 pl-6">
                                                 <div className="flex items-center gap-3">
-                                                    <div className="w-10 h-10 rounded-lg bg-ink-black/50 border border-ash-grey/20 overflow-hidden flex-shrink-0">
+                                                    <div className="w-10 h-10 rounded-lg bg-gunmetal/50 border border-pale-slate/20 overflow-hidden flex-shrink-0">
                                                         {cat.image_url ? (
                                                             <img src={cat.image_url} alt={cat.name} className="w-full h-full object-cover" />
                                                         ) : (
-                                                            <div className="w-full h-full flex items-center justify-center text-ash-grey/40">
+                                                            <div className="w-full h-full flex items-center justify-center text-pale-slate/40">
                                                                 <Layers size={16} />
                                                             </div>
                                                         )}
                                                     </div>
-                                                    <span className="font-bold text-beige">{cat.name}</span>
+                                                    <span className="font-bold text-bright-snow">{cat.name}</span>
                                                 </div>
                                             </td>
-                                            <td className="p-4 font-mono text-ash-grey">{cat.slug || '-'}</td>
+                                            <td className="p-4 font-mono text-pale-slate">{cat.slug || '-'}</td>
                                             <td className="p-4 pr-6 text-right" onClick={(e) => e.stopPropagation()}>
                                                 <div className="flex justify-end gap-2">
                                                     <button
                                                         onClick={() => openEditDrawer(cat)}
-                                                        className="p-2 text-ash-grey hover:text-beige hover:bg-ink-black/40 rounded-lg transition-all"
+                                                        className="p-2 text-pale-slate hover:text-bright-snow hover:bg-gunmetal/40 rounded-lg transition-all"
                                                     >
                                                         <Edit3 size={16} />
                                                     </button>
                                                     <button
                                                         onClick={() => handleDelete(cat.id)}
-                                                        className="p-2 text-ash-grey hover:text-red-400 hover:bg-red-400/10 rounded-lg transition-all"
+                                                        className="p-2 text-pale-slate hover:text-red-400 hover:bg-red-400/10 rounded-lg transition-all"
                                                     >
                                                         <Trash2 size={16} />
                                                     </button>
@@ -287,25 +287,25 @@ export default function Categories() {
 
                     {/* Pagination Footer */}
                     {totalCount > 0 && (
-                        <div className="p-4 border-t border-ash-grey/10 bg-ink-black/20 flex items-center justify-between">
-                            <span className="text-xs text-ash-grey">
-                                Showing <span className="text-beige font-bold">{categories.length}</span> of <span className="text-beige font-bold">{totalCount}</span>
+                        <div className="p-4 border-t border-pale-slate/10 bg-gunmetal/20 flex items-center justify-between">
+                            <span className="text-xs text-pale-slate">
+                                Showing <span className="text-bright-snow font-bold">{categories.length}</span> of <span className="text-bright-snow font-bold">{totalCount}</span>
                             </span>
                             <div className="flex gap-2">
                                 <button
                                     disabled={page === 1}
                                     onClick={() => setPage(p => Math.max(1, p - 1))}
-                                    className="p-2 rounded-lg bg-ink-black/40 border border-ash-grey/10 text-beige hover:bg-dark-teal disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+                                    className="p-2 rounded-lg bg-gunmetal/40 border border-pale-slate/10 text-bright-snow hover:bg-iron-grey disabled:opacity-30 disabled:cursor-not-allowed transition-all"
                                 >
                                     <ChevronLeft size={16} />
                                 </button>
-                                <span className="text-sm font-mono text-ash-grey px-2 my-auto">
+                                <span className="text-sm font-mono text-pale-slate px-2 my-auto">
                                     {page} / {Math.ceil(totalCount / itemsPerPage) || 1}
                                 </span>
                                 <button
                                     disabled={page >= Math.ceil(totalCount / itemsPerPage)}
                                     onClick={() => setPage(p => p + 1)}
-                                    className="p-2 rounded-lg bg-ink-black/40 border border-ash-grey/10 text-beige hover:bg-dark-teal disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+                                    className="p-2 rounded-lg bg-gunmetal/40 border border-pale-slate/10 text-bright-snow hover:bg-iron-grey disabled:opacity-30 disabled:cursor-not-allowed transition-all"
                                 >
                                     <ChevronRight size={16} />
                                 </button>
@@ -322,16 +322,16 @@ export default function Categories() {
             />
 
             <div
-                className={`fixed top-0 right-0 h-full w-full md:w-[450px] bg-ink-black border-l border-ash-grey/20 shadow-2xl z-50 transform transition-transform duration-300 ease-in-out ${isDrawerOpen ? 'translate-x-0' : 'translate-x-full'}`}
+                className={`fixed top-0 right-0 h-full w-full md:w-[450px] bg-gunmetal border-l border-pale-slate/20 shadow-2xl z-50 transform transition-transform duration-300 ease-in-out ${isDrawerOpen ? 'translate-x-0' : 'translate-x-full'}`}
             >
                 <div className="h-full flex flex-col">
 
-                    <div className="p-6 border-b border-ash-grey/10 flex items-center justify-between bg-dark-teal/10">
-                        <h3 className="text-xl font-bold text-beige flex items-center gap-2">
+                    <div className="p-6 border-b border-pale-slate/10 flex items-center justify-between bg-iron-grey/10">
+                        <h3 className="text-xl font-bold text-bright-snow flex items-center gap-2">
                             {editingId ? <Edit3 size={20} /> : <Plus size={20} />}
                             {editingId ? 'Edit Category' : 'New Category'}
                         </h3>
-                        <button onClick={closeDrawer} className="p-2 text-ash-grey hover:text-beige hover:bg-white/10 rounded-full transition-all">
+                        <button onClick={closeDrawer} className="p-2 text-pale-slate hover:text-bright-snow hover:bg-white/10 rounded-full transition-all">
                             <X size={20} />
                         </button>
                     </div>
@@ -340,12 +340,12 @@ export default function Categories() {
                         <form id="category-form" onSubmit={handleSubmit} className="space-y-6">
 
                             <div className="group">
-                                <label className="block text-xs font-bold text-ash-grey mb-2 uppercase tracking-widest">Name</label>
+                                <label className="block text-xs font-bold text-pale-slate mb-2 uppercase tracking-widest">Name</label>
                                 <input
                                     type="text"
                                     value={formData.name}
                                     onChange={(e) => handleNameChange(e.target.value)}
-                                    className="w-full p-4 bg-ink-black border border-ash-grey/20 rounded-xl text-beige focus:border-honey/50 focus:bg-white/5 outline-none transition-all"
+                                    className="w-full p-4 bg-gunmetal border border-pale-slate/20 rounded-xl text-bright-snow focus:border-pale-slate/50 focus:bg-white/5 outline-none transition-all"
                                     placeholder="e.g. Smart Watches"
                                     required
                                     autoFocus
@@ -353,23 +353,23 @@ export default function Categories() {
                             </div>
 
                             <div className="group">
-                                <label className="block text-xs font-bold text-ash-grey mb-2 uppercase tracking-widest">URL Slug</label>
+                                <label className="block text-xs font-bold text-pale-slate mb-2 uppercase tracking-widest">URL Slug</label>
                                 <div className="relative">
-                                    <span className="absolute left-4 top-4 text-ash-grey/50 font-mono">/</span>
+                                    <span className="absolute left-4 top-4 text-pale-slate/50 font-mono">/</span>
                                     <input
                                         type="text"
                                         value={formData.slug}
                                         onChange={(e) => setFormData({ ...formData, slug: e.target.value })}
-                                        className="w-full pl-8 p-4 bg-ink-black border border-ash-grey/20 rounded-xl text-ash-grey font-mono text-sm focus:border-honey/50 focus:bg-white/5 outline-none transition-all"
+                                        className="w-full pl-8 p-4 bg-gunmetal border border-pale-slate/20 rounded-xl text-pale-slate font-mono text-sm focus:border-pale-slate/50 focus:bg-white/5 outline-none transition-all"
                                         placeholder="smart-watches"
                                         required
                                     />
                                 </div>
-                                <p className="mt-2 text-xs text-ash-grey/50">Used in the website address bar.</p>
+                                <p className="mt-2 text-xs text-pale-slate/50">Used in the website address bar.</p>
                             </div>
 
                             <div className="group">
-                                <label className="block text-xs font-bold text-ash-grey mb-3 uppercase tracking-widest">Category Image</label>
+                                <label className="block text-xs font-bold text-pale-slate mb-3 uppercase tracking-widest">Category Image</label>
                                 <ImageUpload
                                     images={formData.image_url ? [formData.image_url] : []}
                                     setImages={(urls) => setFormData({ ...formData, image_url: urls[0] || '' })}
@@ -380,11 +380,11 @@ export default function Categories() {
                         </form>
                     </div>
 
-                    <div className="p-6 border-t border-ash-grey/10 bg-dark-teal/5 flex justify-end gap-3">
+                    <div className="p-6 border-t border-pale-slate/10 bg-iron-grey/5 flex justify-end gap-3">
                         <button
                             type="button"
                             onClick={closeDrawer}
-                            className="px-6 py-3 rounded-xl text-ash-grey font-medium hover:text-beige hover:bg-white/5 transition-all"
+                            className="px-6 py-3 rounded-xl text-pale-slate font-medium hover:text-bright-snow hover:bg-white/5 transition-all"
                         >
                             Cancel
                         </button>
@@ -392,7 +392,7 @@ export default function Categories() {
                             type="submit"
                             form="category-form"
                             disabled={saving}
-                            className="px-6 py-3 bg-beige text-dark-teal rounded-xl font-bold hover:bg-white transition-all shadow-lg flex items-center gap-2"
+                            className="px-6 py-3 bg-bright-snow text-gunmetal rounded-xl font-bold hover:bg-white transition-all shadow-lg flex items-center gap-2"
                         >
                             {saving ? <Loader2 className="animate-spin" size={20} /> : <Save size={20} />}
                             {editingId ? 'Update Changes' : 'Create Category'}

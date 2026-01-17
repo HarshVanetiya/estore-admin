@@ -21,8 +21,8 @@ export default function Dashboard() {
             title: "Sales Heatmap",
             desc: "Calendar view showing peak sales days and times for marketing.",
             icon: CalendarDays,
-            color: "text-honey",
-            bg: "bg-honey/10"
+            color: "text-platinum",
+            bg: "bg-platinum/10"
         },
         {
             title: "Low Stock Radar",
@@ -35,8 +35,8 @@ export default function Dashboard() {
             title: "Average Order Value (AOV)",
             desc: "Track customer spending habits to optimize bundle pricing.",
             icon: ShoppingCart,
-            color: "text-air-force-blue",
-            bg: "bg-air-force-blue/10"
+            color: "text-slate-grey",
+            bg: "bg-slate-grey/10"
         },
         {
             title: "Abandoned Cart Rate",
@@ -53,22 +53,22 @@ export default function Dashboard() {
             {/* Header */}
             <div className="flex items-center justify-between">
                 <div>
-                    <h2 className="text-3xl font-bold text-beige tracking-tight">Analytics Roadmap</h2>
-                    <p className="text-ash-grey mt-2">Planned modules for store intelligence.</p>
+                    <h2 className="text-3xl font-bold text-bright-snow tracking-tight">Analytics Roadmap</h2>
+                    <p className="text-pale-slate mt-2">Planned modules for store intelligence.</p>
                 </div>
-                <div className="px-4 py-2 bg-ink-black/50 border border-ash-grey/20 rounded-full text-xs font-mono text-ash-grey">
+                <div className="px-4 py-2 bg-gunmetal/50 border border-pale-slate/20 rounded-full text-xs font-mono text-pale-slate">
                     v1.0 • Data Collection Phase
                 </div>
             </div>
 
             {/* Hero Placeholder */}
-            <div className="glass-card p-8 rounded-3xl border-dashed border-2 border-ash-grey/20 flex items-center gap-6 mb-10">
-                <div className="p-5 bg-dark-teal/40 rounded-2xl animate-pulse hidden md:block">
-                    <BarChart3 size={40} className="text-air-force-blue" />
+            <div className="glass-card p-8 rounded-3xl border-dashed border-2 border-pale-slate/20 flex items-center gap-6 mb-10">
+                <div className="p-5 bg-iron-grey/40 rounded-2xl animate-pulse hidden md:block">
+                    <BarChart3 size={40} className="text-slate-grey" />
                 </div>
                 <div>
-                    <h3 className="text-xl font-bold text-beige mb-2">Analytics Module Pending</h3>
-                    <p className="text-ash-grey text-sm leading-relaxed max-w-2xl">
+                    <h3 className="text-xl font-bold text-bright-snow mb-2">Analytics Module Pending</h3>
+                    <p className="text-pale-slate text-sm leading-relaxed max-w-2xl">
                         We are currently in the "Data Collection Phase." Once enough orders are processed,
                         this dashboard will populate with Revenue, Sales Trends, and Product Performance charts.
                     </p>
@@ -80,15 +80,15 @@ export default function Dashboard() {
                 {upcomingFeatures.map((feature, idx) => (
                     <div
                         key={idx}
-                        className="glass-card p-6 rounded-2xl border border-ash-grey/5 hover:border-ash-grey/20 transition-all group"
+                        className="glass-card p-6 rounded-2xl border border-pale-slate/5 hover:border-pale-slate/20 transition-all group"
                     >
                         <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${feature.bg} ${feature.color} group-hover:scale-110 transition-transform`}>
                             <feature.icon size={24} />
                         </div>
-                        <h4 className="text-lg font-bold text-beige mb-2 opacity-80 group-hover:opacity-100 transition-opacity">
+                        <h4 className="text-lg font-bold text-bright-snow mb-2 opacity-80 group-hover:opacity-100 transition-opacity">
                             {feature.title}
                         </h4>
-                        <p className="text-sm text-ash-grey/60 group-hover:text-ash-grey/80 transition-colors">
+                        <p className="text-sm text-pale-slate/60 group-hover:text-pale-slate/80 transition-colors">
                             {feature.desc}
                         </p>
                     </div>

@@ -89,59 +89,59 @@ export default function Settings() {
 
             {/* Header */}
             <div className="flex items-center gap-3 mb-8">
-                <div className="p-3 bg-dark-teal/20 rounded-xl text-beige">
+                <div className="p-3 bg-iron-grey/20 rounded-xl text-bright-snow">
                     <SettingsIcon size={32} />
                 </div>
                 <div>
-                    <h2 className="text-3xl font-bold text-beige tracking-tight">Store Settings</h2>
-                    <p className="text-ash-grey mt-1">Manage global website configuration.</p>
+                    <h2 className="text-3xl font-bold text-bright-snow tracking-tight">Store Settings</h2>
+                    <p className="text-pale-slate mt-1">Manage global website configuration.</p>
                 </div>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-8">
 
                 {/* SECTION 1: GENERAL INFO */}
-                <div className="glass-card p-8 rounded-3xl border border-ash-grey/10">
-                    <h3 className="text-xl font-bold text-beige mb-6 flex items-center gap-2">
-                        <Globe size={20} className="text-honey" /> General Identity
+                <div className="glass-card p-8 rounded-3xl border border-pale-slate/10">
+                    <h3 className="text-xl font-bold text-bright-snow mb-6 flex items-center gap-2">
+                        <Globe size={20} className="text-platinum" /> General Identity
                     </h3>
 
                     <div className="group">
-                        <label className="block text-xs font-bold text-ash-grey mb-2 uppercase tracking-widest">Website Name</label>
+                        <label className="block text-xs font-bold text-pale-slate mb-2 uppercase tracking-widest">Website Name</label>
                         <input
                             type="text"
                             value={formData.site_name}
                             onChange={(e) => setFormData({ ...formData, site_name: e.target.value })}
-                            className="w-full p-4 bg-ink-black/50 border border-ash-grey/20 rounded-xl text-beige focus:border-honey/50 focus:bg-ink-black transition-all outline-none"
+                            className="w-full p-4 bg-gunmetal/50 border border-pale-slate/20 rounded-xl text-bright-snow focus:border-bright-snow/50 focus:bg-gunmetal transition-all outline-none"
                             placeholder="e.g. My Awesome Store"
                         />
                     </div>
                 </div>
 
                 {/* SECTION 2: HERO BANNER */}
-                <div className="glass-card p-8 rounded-3xl border border-ash-grey/10">
-                    <h3 className="text-xl font-bold text-beige mb-6 flex items-center gap-2">
-                        <Layout size={20} className="text-honey" /> Homepage Hero
+                <div className="glass-card p-8 rounded-3xl border border-pale-slate/10">
+                    <h3 className="text-xl font-bold text-bright-snow mb-6 flex items-center gap-2">
+                        <Layout size={20} className="text-platinum" /> Homepage Hero
                     </h3>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                         <div className="group">
-                            <label className="block text-xs font-bold text-ash-grey mb-2 uppercase tracking-widest">Hero Title</label>
+                            <label className="block text-xs font-bold text-pale-slate mb-2 uppercase tracking-widest">Hero Title</label>
                             <input
                                 type="text"
                                 value={formData.hero_title}
                                 onChange={(e) => setFormData({ ...formData, hero_title: e.target.value })}
-                                className="w-full p-4 bg-ink-black/50 border border-ash-grey/20 rounded-xl text-beige focus:border-honey/50 outline-none"
+                                className="w-full p-4 bg-gunmetal/50 border border-pale-slate/20 rounded-xl text-bright-snow focus:border-bright-snow/50 outline-none"
                                 placeholder="Summer Sale is Live!"
                             />
                         </div>
                         <div className="group">
-                            <label className="block text-xs font-bold text-ash-grey mb-2 uppercase tracking-widest">Subtitle</label>
+                            <label className="block text-xs font-bold text-pale-slate mb-2 uppercase tracking-widest">Subtitle</label>
                             <input
                                 type="text"
                                 value={formData.hero_subtitle}
                                 onChange={(e) => setFormData({ ...formData, hero_subtitle: e.target.value })}
-                                className="w-full p-4 bg-ink-black/50 border border-ash-grey/20 rounded-xl text-beige focus:border-honey/50 outline-none"
+                                className="w-full p-4 bg-gunmetal/50 border border-pale-slate/20 rounded-xl text-bright-snow focus:border-bright-snow/50 outline-none"
                                 placeholder="Get 50% off on all electronics."
                             />
                         </div>
@@ -149,15 +149,15 @@ export default function Settings() {
 
                     {/* Hero Image Upload */}
                     <div className="group">
-                        <label className="block text-xs font-bold text-ash-grey mb-3 uppercase tracking-widest">Hero Banner Image</label>
-                        <div className="bg-ink-black/30 p-4 rounded-xl border border-dashed border-ash-grey/20">
+                        <label className="block text-xs font-bold text-pale-slate mb-3 uppercase tracking-widest">Hero Banner Image</label>
+                        <div className="bg-gunmetal/30 p-4 rounded-xl border border-dashed border-pale-slate/20">
                             <ImageUpload
                                 // Pass current image as an array so the component can display it
                                 images={formData.hero_image_url ? [formData.hero_image_url] : []}
                                 setImages={handleImageChange}
                                 onError={(msg) => showModal('Image Error', msg, 'error')}
                             />
-                            <p className="text-xs text-ash-grey mt-2 ml-1 opacity-60">
+                            <p className="text-xs text-pale-slate mt-2 ml-1 opacity-60">
                                 Recommended size: 1920x600px
                             </p>
                         </div>
@@ -165,41 +165,41 @@ export default function Settings() {
                 </div>
 
                 {/* SECTION 3: CONTACT INFO */}
-                <div className="glass-card p-8 rounded-3xl border border-ash-grey/10">
-                    <h3 className="text-xl font-bold text-beige mb-6 flex items-center gap-2">
-                        <Phone size={20} className="text-honey" /> Contact Details
+                <div className="glass-card p-8 rounded-3xl border border-pale-slate/10">
+                    <h3 className="text-xl font-bold text-bright-snow mb-6 flex items-center gap-2">
+                        <Phone size={20} className="text-platinum" /> Contact Details
                     </h3>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                         <div className="group">
-                            <label className="block text-xs font-bold text-ash-grey mb-2 uppercase tracking-widest">Support Email</label>
+                            <label className="block text-xs font-bold text-pale-slate mb-2 uppercase tracking-widest">Support Email</label>
                             <input
                                 type="email"
                                 value={formData.contact_email}
                                 onChange={(e) => setFormData({ ...formData, contact_email: e.target.value })}
-                                className="w-full p-4 bg-ink-black/50 border border-ash-grey/20 rounded-xl text-beige focus:border-honey/50 outline-none"
+                                className="w-full p-4 bg-gunmetal/50 border border-pale-slate/20 rounded-xl text-bright-snow focus:border-bright-snow/50 outline-none"
                                 placeholder="support@store.com"
                             />
                         </div>
                         <div className="group">
-                            <label className="block text-xs font-bold text-ash-grey mb-2 uppercase tracking-widest">Phone Number</label>
+                            <label className="block text-xs font-bold text-pale-slate mb-2 uppercase tracking-widest">Phone Number</label>
                             <input
                                 type="text"
                                 value={formData.contact_phone}
                                 onChange={(e) => setFormData({ ...formData, contact_phone: e.target.value })}
-                                className="w-full p-4 bg-ink-black/50 border border-ash-grey/20 rounded-xl text-beige focus:border-honey/50 outline-none"
+                                className="w-full p-4 bg-gunmetal/50 border border-pale-slate/20 rounded-xl text-bright-snow focus:border-bright-snow/50 outline-none"
                                 placeholder="+1 234 567 890"
                             />
                         </div>
                     </div>
 
                     <div className="group">
-                        <label className="block text-xs font-bold text-ash-grey mb-2 uppercase tracking-widest">Physical Address</label>
+                        <label className="block text-xs font-bold text-pale-slate mb-2 uppercase tracking-widest">Physical Address</label>
                         <textarea
                             rows={3}
                             value={formData.address}
                             onChange={(e) => setFormData({ ...formData, address: e.target.value })}
-                            className="w-full p-4 bg-ink-black/50 border border-ash-grey/20 rounded-xl text-beige focus:border-honey/50 outline-none resize-none"
+                            className="w-full p-4 bg-gunmetal/50 border border-pale-slate/20 rounded-xl text-bright-snow focus:border-bright-snow/50 outline-none resize-none"
                             placeholder="123 Store Street, Commerce City..."
                         />
                     </div>
@@ -210,7 +210,7 @@ export default function Settings() {
                     <button
                         type="submit"
                         disabled={saving}
-                        className="px-8 py-4 bg-beige text-dark-teal rounded-2xl font-bold text-lg shadow-xl shadow-black/50 hover:bg-white hover:scale-[1.02] active:scale-95 transition-all flex items-center gap-3"
+                        className="px-8 py-4 bg-bright-snow text-gunmetal rounded-2xl font-bold text-lg shadow-xl shadow-black/50 hover:bg-white hover:scale-[1.02] active:scale-95 transition-all flex items-center gap-3"
                     >
                         {saving ? <Loader2 className="animate-spin" /> : <Save size={24} />}
                         Save Configuration
