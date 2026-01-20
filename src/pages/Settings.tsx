@@ -18,7 +18,10 @@ export default function Settings() {
         hero_image_url: '',
         contact_email: '',
         contact_phone: '',
-        address: ''
+        address: '',
+        facebook_url: '',
+        twitter_url: '',
+        instagram_url: ''
     });
 
     // Modal State
@@ -197,11 +200,51 @@ export default function Settings() {
                         <label className="block text-xs font-bold text-pale-slate mb-2 uppercase tracking-widest">Physical Address</label>
                         <textarea
                             rows={3}
-                            value={formData.address}
+                            value={formData.address || ''}
                             onChange={(e) => setFormData({ ...formData, address: e.target.value })}
                             className="w-full p-4 bg-gunmetal/50 border border-pale-slate/20 rounded-xl text-bright-snow focus:border-bright-snow/50 outline-none resize-none"
                             placeholder="123 Store Street, Commerce City..."
                         />
+                    </div>
+                </div>
+
+                {/* SECTION 4: SOCIAL PRESENCE */}
+                <div className="glass-card p-8 rounded-3xl border border-pale-slate/10">
+                    <h3 className="text-xl font-bold text-bright-snow mb-6 flex items-center gap-2">
+                        <Globe size={20} className="text-platinum" /> Social Presence
+                    </h3>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="group">
+                            <label className="block text-xs font-bold text-pale-slate mb-2 uppercase tracking-widest">Facebook URL</label>
+                            <input
+                                type="url"
+                                value={formData.facebook_url || ''}
+                                onChange={(e) => setFormData({ ...formData, facebook_url: e.target.value })}
+                                className="w-full p-4 bg-gunmetal/50 border border-pale-slate/20 rounded-xl text-bright-snow focus:border-bright-snow/50 outline-none"
+                                placeholder="https://facebook.com/yourpage"
+                            />
+                        </div>
+                        <div className="group">
+                            <label className="block text-xs font-bold text-pale-slate mb-2 uppercase tracking-widest">X (formerly Twitter) URL</label>
+                            <input
+                                type="url"
+                                value={formData.twitter_url || ''}
+                                onChange={(e) => setFormData({ ...formData, twitter_url: e.target.value })}
+                                className="w-full p-4 bg-gunmetal/50 border border-pale-slate/20 rounded-xl text-bright-snow focus:border-bright-snow/50 outline-none"
+                                placeholder="https://x.com/yourhandle"
+                            />
+                        </div>
+                        <div className="group">
+                            <label className="block text-xs font-bold text-pale-slate mb-2 uppercase tracking-widest">Instagram URL</label>
+                            <input
+                                type="url"
+                                value={formData.instagram_url || ''}
+                                onChange={(e) => setFormData({ ...formData, instagram_url: e.target.value })}
+                                className="w-full p-4 bg-gunmetal/50 border border-pale-slate/20 rounded-xl text-bright-snow focus:border-bright-snow/50 outline-none"
+                                placeholder="https://instagram.com/yourprofile"
+                            />
+                        </div>
                     </div>
                 </div>
 
