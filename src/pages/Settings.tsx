@@ -21,7 +21,10 @@ export default function Settings() {
         address: '',
         facebook_url: '',
         twitter_url: '',
-        instagram_url: ''
+        instagram_url: '',
+        all_products_image_url: '',
+        products_hero_title: '',
+        products_hero_subtitle: ''
     });
 
     // Modal State
@@ -79,10 +82,10 @@ export default function Settings() {
     };
 
     // Helper to handle the ImageUpload component which expects an array
-    const handleImageChange = (urls: string[]) => {
+    const handleImageChange = (field: 'hero_image_url' | 'all_products_image_url') => (urls: string[]) => {
         // We only take the last uploaded image (Single Image Mode)
         const lastImage = urls[urls.length - 1];
-        setFormData({ ...formData, hero_image_url: lastImage || '' });
+        setFormData({ ...formData, [field]: lastImage || '' });
     };
 
     if (loading) return <div className="p-12 flex justify-center"><Loader /></div>;
@@ -151,23 +154,67 @@ export default function Settings() {
                     </div>
 
                     {/* Hero Image Upload */}
-                    <div className="group">
-                        <label className="block text-xs font-bold text-pale-slate mb-3 uppercase tracking-widest">Hero Banner Image</label>
+                    <div className="group mt-8">
+                        <label className="block text-xs font-bold text-pale-slate mb-3 uppercase tracking-widest">Home Hero Banner</label>
                         <div className="bg-gunmetal/30 p-4 rounded-xl border border-dashed border-pale-slate/20">
                             <ImageUpload
-                                // Pass current image as an array so the component can display it
                                 images={formData.hero_image_url ? [formData.hero_image_url] : []}
-                                setImages={handleImageChange}
+                                setImages={handleImageChange('hero_image_url')}
                                 onError={(msg) => showModal('Image Error', msg, 'error')}
                             />
                             <p className="text-xs text-pale-slate mt-2 ml-1 opacity-60">
-                                Recommended size: 1920x600px
+                                Home page main banner (1920x600px)
                             </p>
                         </div>
                     </div>
                 </div>
 
-                {/* SECTION 3: CONTACT INFO */}
+                {/* SECTION 3: ALL PRODUCTS HERO */}
+                <div className="glass-card p-8 rounded-3xl border border-pale-slate/10">
+                    <h3 className="text-xl font-bold text-bright-snow mb-6 flex items-center gap-2">
+                        <Layout size={20} className="text-platinum" /> All Products Hero
+                    </h3>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div className="group">
+                            <label className="block text-xs font-bold text-pale-slate mb-2 uppercase tracking-widest">Hero Title</label>
+                            <input
+                                type="text"
+                                value={formData.products_hero_title || ''}
+                                onChange={(e) => setFormData({ ...formData, products_hero_title: e.target.value })}
+                                className="w-full p-4 bg-gunmetal/50 border border-pale-slate/20 rounded-xl text-bright-snow focus:border-bright-snow/50 outline-none"
+                                placeholder="All Products"
+                            />
+                        </div>
+                        <div className="group">
+                            <label className="block text-xs font-bold text-pale-slate mb-2 uppercase tracking-widest">Hero Subtitle</label>
+                            <input
+                                type="text"
+                                value={formData.products_hero_subtitle || ''}
+                                onChange={(e) => setFormData({ ...formData, products_hero_subtitle: e.target.value })}
+                                className="w-full p-4 bg-gunmetal/50 border border-pale-slate/20 rounded-xl text-bright-snow focus:border-bright-snow/50 outline-none"
+                                placeholder="Explore our curated collection..."
+                            />
+                        </div>
+                    </div>
+
+                    {/* All Products Banner Upload */}
+                    <div className="group mt-8">
+                        <label className="block text-xs font-bold text-pale-slate mb-3 uppercase tracking-widest">All Products Banner</label>
+                        <div className="bg-gunmetal/30 p-4 rounded-xl border border-dashed border-pale-slate/20">
+                            <ImageUpload
+                                images={formData.all_products_image_url ? [formData.all_products_image_url] : []}
+                                setImages={handleImageChange('all_products_image_url')}
+                                onError={(msg) => showModal('Image Error', msg, 'error')}
+                            />
+                            <p className="text-xs text-pale-slate mt-2 ml-1 opacity-60">
+                                Default banner for product catalog (1920x400px)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                {/* SECTION 4: CONTACT INFO */}
                 <div className="glass-card p-8 rounded-3xl border border-pale-slate/10">
                     <h3 className="text-xl font-bold text-bright-snow mb-6 flex items-center gap-2">
                         <Phone size={20} className="text-platinum" /> Contact Details
